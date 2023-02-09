@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://ritextanalytics2.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_d7ed06b789f4406e9cd61bc44281c2b8 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_3e0ae488e5b545e788fbf103048ccb2f }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_ddc5bf7da8844cc1a26a5ee37c67ce21 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_de451d9cee5e4931910b9afcc29a417b }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ritextanalytics2.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_d7ed06b789f4406e9cd61bc44281c2b8 }}/rianalytics:${{ github.sha }}
+        tags: ritextanalytics2.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ddc5bf7da8844cc1a26a5ee37c67ce21 }}/rianalytics:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'ritextanalytics2'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ea818c96ddc24f4b93bf3742835619fd }}
-        images: 'ritextanalytics2.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_d7ed06b789f4406e9cd61bc44281c2b8 }}/rianalytics:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_56c4e158a0384cd58c4a714f101894b0 }}
+        images: 'ritextanalytics2.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ddc5bf7da8844cc1a26a5ee37c67ce21 }}/rianalytics:${{ github.sha }}'
