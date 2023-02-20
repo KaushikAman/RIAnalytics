@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ritextanalytics2.azurecr.io/rianalytics:${{ github.sha }}
+        tags: ritextanalytics2.azurecr.io/rianalytics:latest
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'ritext'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_db48d85b73b54207bcdf2dfa25b89a77 }}
-        images: 'ritextanalytics2.azurecr.io/rianalytics:${{ github.sha }}'
+        images: 'ritextanalytics2.azurecr.io/rianalytics:latest'
