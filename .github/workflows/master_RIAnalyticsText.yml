@@ -45,5 +45,5 @@ jobs:
       with:
         app-name: 'RIAnalyticsText'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a7b305c85f0042ba9d2a291de6520aa4 }}
+        publish-profile: ${{ secrets.APPSERVICE_SECRET }}
         images: 'ritextanalytics2.azurecr.io/rianalytics:${{ github.sha }}'
